@@ -8,7 +8,7 @@ public class App {
     final static private int MAX_CALL_TRIES = 3;
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {   
 
         Candidate[] candidateList, selectedCandidates;
          
@@ -30,12 +30,13 @@ public class App {
             called = hello();
             keepTrying = !called;
             if(keepTrying)
+                
                 tries++;
             else break;
         }while (tries < MAX_CALL_TRIES);
 
         if(called) System.out.println("CANDIDATO " + _c.getName() + " CONTATADO");
-        else System.out.println("CANDIDATO " + _c.getName() + " NaO CONTATADO APoS " + MAX_CALL_TRIES + " TENTATIVAS!");
+        else System.out.println("CANDIDATO " + _c.getName() + " NAO CONTATADO APOS " + MAX_CALL_TRIES + " TENTATIVAS!");
     }
 
 
