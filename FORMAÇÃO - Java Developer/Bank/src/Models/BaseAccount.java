@@ -3,7 +3,7 @@ package Models;
 import Interface.AccountMethods;
 import java.util.ArrayList;
 
-public class BaseAccount implements AccountMethods{
+public abstract class BaseAccount implements AccountMethods{
     protected String name, cpf;
     protected int age;
     protected double currency;
@@ -59,7 +59,7 @@ public class BaseAccount implements AccountMethods{
 
     @Override
     public void deposit(double _value) {
-        if("".equals(this. name)){
+        if(!"".equals(this.name)){
             this.currency += _value;
             addTransaction("deposit", _value);
         }
@@ -68,7 +68,7 @@ public class BaseAccount implements AccountMethods{
 
     @Override
     public void withdrawal(double _value) {
-        if("".equals(this. name)){
+        if(!"".equals(this.name)){
             this.currency -= _value;
             addTransaction("withdrawal", _value);
         }
