@@ -20,14 +20,14 @@ public class BankMenu {
         System.out.println(greeting);
 
         int firstOpt = -1;
-        OUTER:
+        MAIN_MENU:
         while (firstOpt != 0) {
             System.out.printf(menu);
             firstOpt = scan.nextInt();
 
             switch (firstOpt) {
                 case 0 -> {
-                    break OUTER;
+                    break MAIN_MENU;
                 }
                 case 1 -> loginAccount();
                 case 2 -> createAccount();
@@ -42,11 +42,17 @@ public class BankMenu {
     }
 
     private boolean loginAccount() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startApp'");
+        String tempUser;
+
+        String prompt = "Digite seu usuário: ";
+        Cleaner.clear();
+        System.out.print(prompt);
+        tempUser = scan.nextLine();
+
+        return bankInstance.searchClient(tempUser);
     }
 
-    private void createAccount() {
+    private boolean createAccount() {
         String tempName, tempCPF;
         int tempAge;
 
@@ -108,6 +114,8 @@ public class BankMenu {
                 default -> System.out.println("\nOpção Inválida!");
             }
         }
+
+        return true;
     }
 
 }
